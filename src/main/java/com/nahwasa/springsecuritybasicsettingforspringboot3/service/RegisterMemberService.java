@@ -20,12 +20,14 @@ public class RegisterMemberService {
 
         Member member = Member.createUser(userid, pw);
         log.info("{}",member);
-//        validateDuplicateMember(member);
+        validateDuplicateMember(member);
         repository.save(member);
+        log.info("{}",member.getId());
         return member.getId();
     }
 
     private void validateDuplicateMember(Member member) {
+        log.info("{}",member);
         repository.findByUserid(member.getUserid())
                 .ifPresent(m -> {
                     throw new IllegalStateException("이미 존재하는 회원입니다.");

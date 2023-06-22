@@ -6,4 +6,8 @@
         insert into member(userid,pw,roles)values(#{userid},#{pw},#{roles});
     </insert>
 
+    <select id="findByUserid" resultType="com.nahwasa.springsecuritybasicsettingforspringboot3.domain.Member">
+        select * from member where userid = #{userid};
+    </select>
+
 </mapper>
