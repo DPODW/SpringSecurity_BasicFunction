@@ -1,11 +1,17 @@
 package com.nahwasa.springsecuritybasicsettingforspringboot3.repository;
 
 import com.nahwasa.springsecuritybasicsettingforspringboot3.domain.Member;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
+
 
 import java.util.Optional;
 
-public interface MemberRepository extends JpaRepository<Member, Long> {
+@Repository
+@Mapper
+public interface MemberRepository {
 
     Optional<Member> findByUserid(String userId);
+
+    void save(Member member);
 }
