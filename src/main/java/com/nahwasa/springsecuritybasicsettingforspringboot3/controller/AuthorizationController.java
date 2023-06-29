@@ -32,13 +32,13 @@ public class AuthorizationController {
         }
     }
 
+    /**
+     * DB TEST 로직
+     * */
     @PostMapping("/SAVE")
     public ResponseEntity<String> save(@RequestBody Map<String,String> requestBody){
         String userid = requestBody.get("userid");
         String pw = requestBody.get("pw");
-        log.info("{}",userid);
-        log.info("{}",pw);
-
         registerMemberService.join(userid,pw);
         return ResponseEntity.ok("ok");
     }

@@ -16,9 +16,7 @@ public class MemberService {
         this.repository = repository;
     }
 
-    /**
-     * findByUserid 구현 필요
-     * */
+
     public Optional<Member> findOne(String userId) {
         return repository.findByUserid(userId);
     }
