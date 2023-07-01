@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 import static org.springframework.security.config.Customizer.withDefaults;
@@ -13,7 +15,16 @@ import static org.springframework.security.config.Customizer.withDefaults;
 public class SpringSecurityConfig {
     /**
      * 시큐리티 설정 CLASS
+     * 인터셉터 처럼, 실제 구현 class 와 설정 class 가 나뉘어져 있는 듯
      * */
+
+    @Bean
+    PasswordEncoder passwordEncoder(){
+        /**
+         * 비밀번호 인코딩 설정 (스프링 부트에서 제공하는 BCryptPasswordEncoder 암호화)
+         * */
+        return new BCryptPasswordEncoder();
+    }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{

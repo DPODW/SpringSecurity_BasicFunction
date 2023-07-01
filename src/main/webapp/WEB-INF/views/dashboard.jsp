@@ -16,11 +16,14 @@
     <h3 class="form-signin-heading text-center mb-5">nahwasa.com</h3>
 
     <h3 class="overview-normalize">접속 아이디</h3>
-    <p id='login_id'>
+    <p>
+        ${loginId}
+    </p>
     </p>
     <hr/>
     <h3 class="overview-normalize">역할</h3>
-    <p id='pw'>
+    <p>
+        ${loginRoles}
     </p>
     <hr/>
     <h3 class="overview-normalize">역할에 따른 페이지 이동 권한 확인</h3>
